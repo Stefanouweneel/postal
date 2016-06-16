@@ -4,10 +4,12 @@ class LikesController < ApplicationController
      post = Post.find( params[:post_id] )
 
      if like = Like.find_by( post: post, user: current_user )
-        like.destroy
+       authorize! :destroy, like
+       like.destroy
      else
-        like = Like.new( post: post, user: current_user )
-        like.save
+       like = Like.new( post: post, user: current_user )
+       authorize! :create, like
+       like.save
      end
 
      redirect_to posts_path
