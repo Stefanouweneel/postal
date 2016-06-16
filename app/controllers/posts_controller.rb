@@ -21,5 +21,10 @@ class PostsController < ApplicationController
    @post.user = current_user
    # ...
   end
+  def user
+   @user = User.find( params[:user_id] )
+
+   @posts = Post.where( user: @user ).order( created_at: :desc )
+  end
 
 end
