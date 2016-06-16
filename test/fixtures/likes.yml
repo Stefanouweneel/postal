@@ -2,8 +2,8 @@
 
 one:
   post_id: 
-  : 
+  user_id: 
 
 two:
   post_id: 
-  : 
+  user_id: 
