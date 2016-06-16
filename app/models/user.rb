@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :user
+
+  def handle
+  self.email.split('@')[0]
+  end
 end
