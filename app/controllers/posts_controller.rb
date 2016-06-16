@@ -9,11 +9,17 @@ class PostsController < ApplicationController
 
    @post = Post.new( content: post_params[:content] )
 
-   if @post.save
-      redirect_to posts_path
-   else
-      render posts_path
+     if @post.save
+        redirect_to posts_path
+     else
+        render posts_path
+     end
    end
-end
+   def create
+   # ...
+   @post = Post.new( content: post_params[:content] )
+   @post.user = current_user
+   # ...
+  end
 
 end
